@@ -28,3 +28,8 @@
 .\objects\bsp_math.o: .\Library\stm32f10x_usart.h
 .\objects\bsp_math.o: .\Library\stm32f10x_wwdg.h
 .\objects\bsp_math.o: .\Library\misc.h
+.\objects\bsp_math.o: E:\Keil5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\bsp_math.o: Hardware\bsp_key.h
+.\objects\bsp_math.o: Hardware\OLED.h
+.\objects\bsp_math.o: Hardware\OLED_Data.h
+.\objects\bsp_math.o: Hardware\bsp_math.h

@@ -50,7 +50,7 @@ uint8_t MatrixKey_Scan(void)
     return KeyValue;
 }
 
-uint8_t KeyNumClean(void)
+uint8_t KeyNumGet(void)
 {
 	uint8_t Temp;
 	Temp=KeyNum ;

@@ -3,7 +3,7 @@
 
 void MatrixKey_Init(void);
 uint8_t MatrixKey_Scan(void);
-uint8_t KeyNumClean(void);
+uint8_t KeyNumGet(void);
 void MatrixKey_Tick(void);
 
 #endif

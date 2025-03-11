@@ -2,6 +2,7 @@
 #include "bsp_Key.h"
 #include "OLED.h"
 #include "math.h"
+#include "bsp_math.h"
 
 int caculater[100];
 char mathoperator[5]={'+','-','*','/','='};
