@@ -33,3 +33,4 @@
 .\objects\main.o: .\Hardware\OLED_Data.h
 .\objects\main.o: E:\Keil5\ARM\ARMCC\Bin\..\include\math.h
 .\objects\main.o: .\Hardware\bsp_math.h
+.\objects\main.o: .\System\bsp_Timer.h

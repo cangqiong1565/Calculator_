@@ -3,15 +3,15 @@
 #include "OLED.h"
 #include "math.h"
 #include "bsp_math.h"
-
-int caculater[100];
-char mathoperator[5]={'+','-','*','/','='};
-
+#include "bsp_Timer.h"
 
 int main (void)
 {
-	
+		int i=0;
+		Timer_Init ();
+		MatrixKey_Init();
 		OLED_Init();
+
 	
 		for(int i=0;i<64;i++)
 		{
@@ -26,10 +26,9 @@ int main (void)
 	
 	while (1)
 	{
-		
-		
-		
-		OLED_Update();
+		//OLED_ShowNum (1,1,MatrixKey_Scan(),2,OLED_8X16 );
+		//OLED_Update();
+		Input ();
 	}
 }
 
@@ -37,11 +36,8 @@ void TIM2_IRQHandler(void)
 {
 	if(TIM_GetITStatus(TIM2,TIM_IT_Update)==SET)
 	{
+		
 		MatrixKey_Tick();
-		
-		
-		
-		
 	    TIM_ClearITPendingBit(TIM2,TIM_IT_Update);
 	}
 

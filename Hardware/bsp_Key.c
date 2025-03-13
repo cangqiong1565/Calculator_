@@ -1,6 +1,6 @@
 #include "stm32f10x.h"                  // Device header
-
-uint8_t KeyNum;
+#include "OLED.h"
+uint8_t KeyNum=0;
 /*矩阵按键初始化*/
 void MatrixKey_Init(void)
 {
@@ -20,6 +20,7 @@ void MatrixKey_Init(void)
 /*矩阵按键扫描*/
 uint8_t MatrixKey_Scan(void)
 {
+	
     uint8_t KeyValue = 0;
     uint8_t i;
 
@@ -46,18 +47,8 @@ uint8_t MatrixKey_Scan(void)
             KeyValue = i * 4 + 4;
         }
     }
-
+	
     return KeyValue;
-}
-
-uint8_t KeyNumGet(void)
-{
-	uint8_t Temp;
-	Temp=KeyNum ;
-	KeyNum =0;
-	return Temp ;
-
-
 }
 
 /*定时器按键扫描*/
@@ -80,6 +71,16 @@ void MatrixKey_Tick(void)
 	
 	
 	}
+
+
+}
+
+uint8_t KeyNumGet(void)
+{
+	uint8_t Temp;
+	Temp=KeyNum ;
+	KeyNum =0;
+	return Temp ;
 
 
 }

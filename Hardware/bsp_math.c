@@ -3,9 +3,8 @@
 #include "bsp_key.h"
 #include "OLED.h"
 #include "bsp_math.h"
-
 /*按键布局*/
-uint8_t Keynum[16]={
+long long Keyboard[16]={
 	1,2,3,12,
 	4,5,6,13,
 	7,8,9,14,
@@ -16,16 +15,7 @@ void Stack_Init(Stack *s)
 { 
 	s->Top=-1;
 }
-//入栈
-void Stack_push(Stack *s,double Value)
-{
-	if(s->Top==-1)
-	{
-	return ;
-	}
-	s->data[(s->Top)++]=Value ;
 
-}
 //判断栈是否已满
 int Full(Stack *s)
 {
@@ -36,14 +26,25 @@ int Full(Stack *s)
 	return 0;
 }
 
-//计算数值函数
-double calculate(Stack *s)
+//入栈
+void Stack_push(Stack *s,double Value)
 {
-	double result=0;
-	double nten=0;
-	for(int i=s->Top;i!=0;i--)
+	if(Full(s))
 	{
-	result +=s->data[s->Top]*pow(10,nten);
+	return ;
+	}
+	s->data[++(s->Top)]=Value ;
+
+}
+
+//计算数值函数
+long long calculate(Stack *s)
+{
+	long long result=0;
+	int nten=0;
+	for(int i=s->Top;i>=0;i--)
+	{
+	result +=s->data[i]*pow(10,nten);
 	nten++;
 	}
 
@@ -53,18 +54,26 @@ double calculate(Stack *s)
 //按键输入函数
 void Input(void)
 {
-	Stack NumInput;
-	Stack_Init(&NumInput );
-	double result;
-	
-	int KeyValue=Keynum[KeyNumGet ()-1];
-	if(KeyNumGet ())
+	static Stack NumInput;//定义为静态变量，防止每次定义的时候都初始化
+	static int InitFlag = 1;
+    if (InitFlag) {
+        Stack_Init(&NumInput);
+        InitFlag = 0;
+    }
+	int KeyValue;//要入栈的数
+	long long result1;
+	uint8_t keynum = KeyNumGet ();
+	if(keynum)
 	{
-		Stack_push(&NumInput ,KeyValue );
-		result=calculate(&NumInput );
+		KeyValue=Keyboard[keynum-1];
+		Stack_push(&NumInput ,KeyValue);
+		result1=calculate(&NumInput );
+		
+		OLED_ShowNum(1,1,result1,NumInput.Top+1,OLED_8X16);
+	
 	}
-
-	OLED_ShowNum(1,1,result,NumInput.Top,OLED_8X16);
+		OLED_Update();
+	
 }
 
 
