@@ -5,10 +5,10 @@
 #include "bsp_math.h"
 /*按键布局*/
 long long Keyboard[16]={
-	1,2,3,12,
-	4,5,6,13,
-	7,8,9,14,
-	10,0,11,15
+	1,2,3,'*',
+	4,5,6,'-',
+	7,8,9,'+',
+	10,0,'=','/'
 };
 //栈的初始化
 void Stack_Init(Stack *s)
@@ -16,10 +16,26 @@ void Stack_Init(Stack *s)
 	s->Top=-1;
 }
 
+//符号栈的初始化
+void operate_Init(operate *o)
+{ 
+	o->top=-1;
+}
+
 //判断栈是否已满
 int Full(Stack *s)
 {
 	if(s->Top==Max-1)
+	{
+	return 1;
+	}
+	return 0;
+}
+
+//判断符号栈是否已满
+int operate_Full(operate *o)
+{
+	if(o->top==Max-1)
 	{
 	return 1;
 	}
@@ -34,6 +50,17 @@ void Stack_push(Stack *s,double Value)
 	return ;
 	}
 	s->data[++(s->Top)]=Value ;
+
+}
+
+//符号入栈
+void operate_push(operate *o,double Value)
+{
+	if(operate_Full(o))
+	{
+	return ;
+	}
+	o->operate_data[++(o->top)]=Value ;
 
 }
 
@@ -55,21 +82,41 @@ long long calculate(Stack *s)
 void Input(void)
 {
 	static Stack NumInput;//定义为静态变量，防止每次定义的时候都初始化
+	static operate opInput;
 	static int InitFlag = 1;
+	static int X=0;
     if (InitFlag) {
         Stack_Init(&NumInput);
+		operate_Init (&opInput);
         InitFlag = 0;
     }
-	int KeyValue;//要入栈的数
+	long long Value;//要入栈的数
 	long long result1;
-	uint8_t keynum = KeyNumGet ();
-	if(keynum)
+	uint8_t KeyValue=KeyNumGet();
+	if(KeyValue)
 	{
-		KeyValue=Keyboard[keynum-1];
-		Stack_push(&NumInput ,KeyValue);
-		result1=calculate(&NumInput );
+		Value=Keyboard[KeyValue-1];
+		if(KeyValue == 4 || KeyValue == 8 || KeyValue == 12 || KeyValue == 16)
+		{
+		    
+            long long currentOperand = calculate(&NumInput);
+            Stack_push(&NumInput, (double)currentOperand);
+            operate_push(&opInput, (char)KeyValue); // 操作符入栈
+			OLED_ShowChar(X,1, Value, OLED_8X16);
+			X+=8;
+            Stack_Init(&NumInput); // 清空操作数栈，开始新操作数的输入
+			
 		
-		OLED_ShowNum(1,1,result1,NumInput.Top+1,OLED_8X16);
+		}
+		else
+		{
+		
+		Stack_push(&NumInput ,Value);
+		result1=calculate(&NumInput );
+		OLED_ShowNum(X,1,result1,NumInput.Top+1,OLED_8X16);
+		X+=8;
+		}
+		
 	
 	}
 		OLED_Update();

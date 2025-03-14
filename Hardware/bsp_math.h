@@ -8,6 +8,12 @@ typedef struct
 	int Top;//栈顶指针
 }Stack;
 
+typedef struct
+{
+	char operate_data[Max];
+	int top;
+}operate;
+
 void Stack_Init(Stack *s);
 int Full(Stack *s);
 void Stack_push(Stack *s,double Value);

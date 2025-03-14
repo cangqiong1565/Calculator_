@@ -12,7 +12,6 @@ int main (void)
 		MatrixKey_Init();
 		OLED_Init();
 
-	
 		for(int i=0;i<64;i++)
 		{
 		OLED_Clear ();
