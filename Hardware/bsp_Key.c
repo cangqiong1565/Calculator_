@@ -21,7 +21,7 @@ void MatrixKey_Init(void)
 uint8_t MatrixKey_Scan(void)
 {
 	
-    uint8_t KeyValue = 0;
+    uint8_t _KeyValue = 0;
     uint8_t i;
 
     // 逐列扫描
@@ -32,23 +32,23 @@ uint8_t MatrixKey_Scan(void)
 
         if (GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_0) == 0)
         {
-            KeyValue = i * 4 + 1;
+            _KeyValue = i * 4 + 1;
         }
         else if (GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_1) == 0)
         {
-            KeyValue = i * 4 + 2;
+            _KeyValue = i * 4 + 2;
         }
         else if (GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_2) == 0)
         {
-            KeyValue = i * 4 + 3;
+            _KeyValue = i * 4 + 3;
         }
         else if (GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_3) == 0)
         {
-            KeyValue = i * 4 + 4;
+            _KeyValue = i * 4 + 4;
         }
     }
 	
-    return KeyValue;
+    return _KeyValue;
 }
 
 /*定时器按键扫描*/

@@ -8,7 +8,7 @@ long long Keyboard[16]={
 	1,2,3,'*',
 	4,5,6,'-',
 	7,8,9,'+',
-	10,0,'=','/'
+	'=',0,'.','/'
 };
 //栈的初始化
 void Stack_Init(Stack *s)
@@ -42,7 +42,7 @@ int operate_Full(operate *o)
 	return 0;
 }
 
-//入栈
+//数字入栈
 void Stack_push(Stack *s,double Value)
 {
 	if(Full(s))
@@ -84,36 +84,31 @@ void Input(void)
 	static Stack NumInput;//定义为静态变量，防止每次定义的时候都初始化
 	static operate opInput;
 	static int InitFlag = 1;
-	static int X=0;
+	static int X=1;
     if (InitFlag) {
         Stack_Init(&NumInput);
 		operate_Init (&opInput);
         InitFlag = 0;
     }
 	long long Value;//要入栈的数
-	long long result1;
 	uint8_t KeyValue=KeyNumGet();
 	if(KeyValue)
 	{
 		Value=Keyboard[KeyValue-1];
 		if(KeyValue == 4 || KeyValue == 8 || KeyValue == 12 || KeyValue == 16)
 		{
-		    
-            long long currentOperand = calculate(&NumInput);
-            Stack_push(&NumInput, (double)currentOperand);
-            operate_push(&opInput, (char)KeyValue); // 操作符入栈
+            //Stack_push(&NumInput, (double)Num1);
+            operate_push(&opInput, (char)Value); // 操作符入栈
 			OLED_ShowChar(X,1, Value, OLED_8X16);
 			X+=8;
             Stack_Init(&NumInput); // 清空操作数栈，开始新操作数的输入
-			
-		
 		}
 		else
 		{
 		
 		Stack_push(&NumInput ,Value);
-		result1=calculate(&NumInput );
-		OLED_ShowNum(X,1,result1,NumInput.Top+1,OLED_8X16);
+		OLED_ShowNum(X,1,Value,1,OLED_8X16);
+		long long Num1 = calculate(&NumInput);
 		X+=8;
 		}
 		

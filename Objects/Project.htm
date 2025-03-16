@@ -3,9 +3,9 @@
 <title>Static Call Graph - [.\Objects\Project.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\Project.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Fri Mar 14 23:04:15 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Sun Mar 16 14:52:48 2025
 <BR><P>
-<H3>Maximum Stack Usage =        296 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        288 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 __rt_entry_main &rArr; main &rArr; Input &rArr; calculate &rArr; pow &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
 <P>
@@ -194,7 +194,7 @@ Global Symbols
 <P><STRONG><a name="[ca]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
 <P><STRONG><a name="[44]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
-<BR><BR>[Stack]<UL><LI>Max Depth = 296 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 288 + Unknown Stack Size
 <LI>Call Chain = __rt_entry_main &rArr; main &rArr; Input &rArr; calculate &rArr; pow &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -426,7 +426,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_md.o(RESET)
 </UL>
 <P><STRONG><a name="[76]"></a>Full</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, bsp_math.o(i.Full))
-<BR><BR>[Called By]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Stack_push
+<BR><BR>[Called By]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Stack_push
 </UL>
 
 <P><STRONG><a name="[5f]"></a>GPIO_Init</STRONG> (Thumb, 278 bytes, Stack size 24 bytes, stm32f10x_gpio.o(i.GPIO_Init))
@@ -452,18 +452,18 @@ Global Symbols
 <P><STRONG><a name="[6]"></a>HardFault_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_it.o(i.HardFault_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_md.o(RESET)
 </UL>
-<P><STRONG><a name="[51]"></a>Input</STRONG> (Thumb, 228 bytes, Stack size 40 bytes, bsp_math.o(i.Input))
-<BR><BR>[Stack]<UL><LI>Max Depth = 296<LI>Call Chain = Input &rArr; calculate &rArr; pow &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
+<P><STRONG><a name="[51]"></a>Input</STRONG> (Thumb, 180 bytes, Stack size 32 bytes, bsp_math.o(i.Input))
+<BR><BR>[Stack]<UL><LI>Max Depth = 288<LI>Call Chain = Input &rArr; calculate &rArr; pow &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_l2d
-<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
-<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;operate_push
+<BR>[Calls]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_l2d
+<LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
+<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;operate_push
 <LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;operate_Init
-<LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculate
-<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Stack_push
+<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculate
+<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Stack_push
 <LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Stack_Init
-<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowNum
-<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowChar
+<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowNum
+<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowChar
 <LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KeyNumGet
 <LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Update
 </UL>
@@ -593,7 +593,7 @@ Global Symbols
 <P><STRONG><a name="[71]"></a>OLED_Pow</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, oled.o(i.OLED_Pow))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = OLED_Pow
 </UL>
-<BR>[Called By]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowNum
+<BR>[Called By]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowNum
 </UL>
 
 <P><STRONG><a name="[6e]"></a>OLED_SetCursor</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, oled.o(i.OLED_SetCursor))
@@ -604,12 +604,12 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Update
 </UL>
 
-<P><STRONG><a name="[5a]"></a>OLED_ShowChar</STRONG> (Thumb, 74 bytes, Stack size 24 bytes, oled.o(i.OLED_ShowChar))
+<P><STRONG><a name="[57]"></a>OLED_ShowChar</STRONG> (Thumb, 74 bytes, Stack size 24 bytes, oled.o(i.OLED_ShowChar))
 <BR><BR>[Stack]<UL><LI>Max Depth = 84<LI>Call Chain = OLED_ShowChar &rArr; OLED_ShowImage &rArr; OLED_ClearArea
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowImage
 </UL>
-<BR>[Called By]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowNum
+<BR>[Called By]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowNum
 <LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Input
 </UL>
 
@@ -618,13 +618,13 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ClearArea
 </UL>
-<BR>[Called By]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowChar
+<BR>[Called By]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowChar
 </UL>
 
-<P><STRONG><a name="[5b]"></a>OLED_ShowNum</STRONG> (Thumb, 76 bytes, Stack size 32 bytes, oled.o(i.OLED_ShowNum))
+<P><STRONG><a name="[5a]"></a>OLED_ShowNum</STRONG> (Thumb, 76 bytes, Stack size 32 bytes, oled.o(i.OLED_ShowNum))
 <BR><BR>[Stack]<UL><LI>Max Depth = 116<LI>Call Chain = OLED_ShowNum &rArr; OLED_ShowChar &rArr; OLED_ShowImage &rArr; OLED_ClearArea
 </UL>
-<BR>[Calls]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowChar
+<BR>[Calls]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_ShowChar
 <LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Pow
 </UL>
 <BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Input
@@ -702,7 +702,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Input
 </UL>
 
-<P><STRONG><a name="[57]"></a>Stack_push</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, bsp_math.o(i.Stack_push))
+<P><STRONG><a name="[59]"></a>Stack_push</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, bsp_math.o(i.Stack_push))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Stack_push
 </UL>
 <BR>[Calls]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Full
@@ -826,12 +826,12 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
 </UL>
 
-<P><STRONG><a name="[55]"></a>calculate</STRONG> (Thumb, 122 bytes, Stack size 64 bytes, bsp_math.o(i.calculate))
+<P><STRONG><a name="[5b]"></a>calculate</STRONG> (Thumb, 122 bytes, Stack size 64 bytes, bsp_math.o(i.calculate))
 <BR><BR>[Stack]<UL><LI>Max Depth = 256<LI>Call Chain = calculate &rArr; pow &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
 <LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_l2d
+<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_l2d
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2lz
 <LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
@@ -840,7 +840,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[45]"></a>main</STRONG> (Thumb, 86 bytes, Stack size 0 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 296<LI>Call Chain = main &rArr; Input &rArr; calculate &rArr; pow &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
+<BR><BR>[Stack]<UL><LI>Max Depth = 288<LI>Call Chain = main &rArr; Input &rArr; calculate &rArr; pow &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer_Init
 <LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OLED_Update
@@ -854,14 +854,14 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[90]"></a>operate_Full</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, bsp_math.o(i.operate_Full))
-<BR><BR>[Called By]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;operate_push
+<BR><BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;operate_push
 </UL>
 
 <P><STRONG><a name="[53]"></a>operate_Init</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, bsp_math.o(i.operate_Init))
 <BR><BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Input
 </UL>
 
-<P><STRONG><a name="[59]"></a>operate_push</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, bsp_math.o(i.operate_push))
+<P><STRONG><a name="[56]"></a>operate_push</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, bsp_math.o(i.operate_push))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = operate_push &rArr; __aeabi_d2uiz
 </UL>
 <BR>[Calls]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2uiz
@@ -891,7 +891,7 @@ Global Symbols
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_divzero
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbn
 </UL>
-<BR>[Called By]<UL><LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculate
+<BR>[Called By]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculate
 </UL>
 
 <P><STRONG><a name="[92]"></a>sqrt</STRONG> (Thumb, 76 bytes, Stack size 24 bytes, sqrt.o(i.sqrt))
@@ -907,7 +907,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_dadd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
-<LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculate
+<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculate
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan2
 </UL>
@@ -944,7 +944,7 @@ Global Symbols
 <P><STRONG><a name="[91]"></a>__aeabi_d2uiz</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, dfixu.o(x$fpl$dfixu))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_d2uiz
 </UL>
-<BR>[Called By]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;operate_push
+<BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;operate_push
 </UL>
 
 <P><STRONG><a name="[9f]"></a>_dfixu</STRONG> (Thumb, 90 bytes, Stack size 32 bytes, dfixu.o(x$fpl$dfixu), UNUSED)
@@ -953,21 +953,21 @@ Global Symbols
 
 <P><STRONG><a name="[8c]"></a>__aeabi_i2d</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dflt))
 <BR><BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
-<LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculate
+<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculate
 </UL>
 
 <P><STRONG><a name="[d7]"></a>_dflt</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dflt), UNUSED)
 
-<P><STRONG><a name="[56]"></a>__aeabi_l2d</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, dfltll_clz.o(x$fpl$dfltll))
+<P><STRONG><a name="[58]"></a>__aeabi_l2d</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, dfltll_clz.o(x$fpl$dfltll))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_l2d
 </UL>
-<BR>[Called By]<UL><LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculate
+<BR>[Called By]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculate
 <LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Input
 </UL>
 
 <P><STRONG><a name="[d8]"></a>_ll_sto_d</STRONG> (Thumb, 162 bytes, Stack size 8 bytes, dfltll_clz.o(x$fpl$dfltll), UNUSED)
 
-<P><STRONG><a name="[58]"></a>__aeabi_ui2d</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dfltu))
+<P><STRONG><a name="[55]"></a>__aeabi_ui2d</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dfltu))
 <BR><BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Input
 </UL>
 
@@ -988,7 +988,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_dmul
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
-<LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculate
+<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculate
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
 </UL>
 
@@ -1059,7 +1059,7 @@ Global Symbols
 <P><STRONG><a name="[8e]"></a>__aeabi_d2lz</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, dfixll.o(x$fpl$llsfromd))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_d2lz
 </UL>
-<BR>[Called By]<UL><LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculate
+<BR>[Called By]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;calculate
 </UL>
 
 <P><STRONG><a name="[a8]"></a>_ll_sfrom_d</STRONG> (Thumb, 194 bytes, Stack size 32 bytes, dfixll.o(x$fpl$llsfromd), UNUSED)
