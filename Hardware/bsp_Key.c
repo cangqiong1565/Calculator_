@@ -20,16 +20,13 @@ void MatrixKey_Init(void)
 /*矩阵按键扫描*/
 uint8_t MatrixKey_Scan(void)
 {
-	
     uint8_t _KeyValue = 0;
     uint8_t i;
 
     // 逐列扫描
     for (i = 0; i < 4; i++)
     {
-       
         GPIO_Write(GPIOA, ~(0x10 << i));
-
         if (GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_0) == 0)
         {
             _KeyValue = i * 4 + 1;
@@ -47,7 +44,6 @@ uint8_t MatrixKey_Scan(void)
             _KeyValue = i * 4 + 4;
         }
     }
-	
     return _KeyValue;
 }
 
@@ -68,11 +64,7 @@ void MatrixKey_Tick(void)
 		{
 		KeyNum = PrevState ;
 		}
-	
-	
 	}
-
-
 }
 
 uint8_t KeyNumGet(void)
@@ -81,6 +73,4 @@ uint8_t KeyNumGet(void)
 	Temp=KeyNum ;
 	KeyNum =0;
 	return Temp ;
-
-
 }

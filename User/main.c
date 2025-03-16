@@ -25,8 +25,6 @@ int main (void)
 	
 	while (1)
 	{
-		//OLED_ShowNum (1,1,MatrixKey_Scan(),2,OLED_8X16 );
-		//OLED_Update();
 		Input ();
 	}
 }
@@ -35,7 +33,6 @@ void TIM2_IRQHandler(void)
 {
 	if(TIM_GetITStatus(TIM2,TIM_IT_Update)==SET)
 	{
-		
 		MatrixKey_Tick();
 	    TIM_ClearITPendingBit(TIM2,TIM_IT_Update);
 	}
