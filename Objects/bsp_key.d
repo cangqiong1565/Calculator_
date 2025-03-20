@@ -28,5 +28,5 @@
 .\objects\bsp_key.o: .\Library\stm32f10x_usart.h
 .\objects\bsp_key.o: .\Library\stm32f10x_wwdg.h
 .\objects\bsp_key.o: .\Library\misc.h
-.\objects\bsp_key.o: Hardware\OLED.h
-.\objects\bsp_key.o: Hardware\OLED_Data.h
+.\objects\bsp_key.o: Hardware\bsp_OLED.h
+.\objects\bsp_key.o: Hardware\bsp_OLED_Data.h

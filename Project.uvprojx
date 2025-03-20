@@ -686,26 +686,6 @@
               <FilePath>.\Hardware\bsp_Key.h</FilePath>
             </File>
             <File>
-              <FileName>OLED.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Hardware\OLED.c</FilePath>
-            </File>
-            <File>
-              <FileName>OLED.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Hardware\OLED.h</FilePath>
-            </File>
-            <File>
-              <FileName>OLED_Data.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Hardware\OLED_Data.c</FilePath>
-            </File>
-            <File>
-              <FileName>OLED_Data.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Hardware\OLED_Data.h</FilePath>
-            </File>
-            <File>
               <FileName>bsp_math.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Hardware\bsp_math.c</FilePath>
@@ -714,6 +694,46 @@
               <FileName>bsp_math.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Hardware\bsp_math.h</FilePath>
+            </File>
+            <File>
+              <FileName>Cal_algorithm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Hardware\Cal_algorithm.c</FilePath>
+            </File>
+            <File>
+              <FileName>Cal_algorithm.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Hardware\Cal_algorithm.h</FilePath>
+            </File>
+            <File>
+              <FileName>Cal_stack.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Hardware\Cal_stack.c</FilePath>
+            </File>
+            <File>
+              <FileName>Cal_stack.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Hardware\Cal_stack.h</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_OLED.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Hardware\bsp_OLED.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_OLED.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Hardware\bsp_OLED.h</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_OLED_Data.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Hardware\bsp_OLED_Data.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_OLED_Data.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Hardware\bsp_OLED_Data.h</FilePath>
             </File>
           </Files>
         </Group>

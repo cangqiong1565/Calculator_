@@ -29,8 +29,13 @@
 .\objects\main.o: .\Library\stm32f10x_wwdg.h
 .\objects\main.o: .\Library\misc.h
 .\objects\main.o: .\Hardware\bsp_Key.h
-.\objects\main.o: .\Hardware\OLED.h
-.\objects\main.o: .\Hardware\OLED_Data.h
+.\objects\main.o: .\Hardware\bsp_OLED.h
+.\objects\main.o: .\Hardware\bsp_OLED_Data.h
 .\objects\main.o: E:\Keil5\ARM\ARMCC\Bin\..\include\math.h
 .\objects\main.o: .\Hardware\bsp_math.h
 .\objects\main.o: .\System\bsp_Timer.h
+.\objects\main.o: .\Hardware\Cal_algorithm.h
+.\objects\main.o: E:\Keil5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\main.o: E:\Keil5\ARM\ARMCC\Bin\..\include\ctype.h
+.\objects\main.o: .\Hardware\Cal_stack.h
+.\objects\main.o: E:\Keil5\ARM\ARMCC\Bin\..\include\stdlib.h

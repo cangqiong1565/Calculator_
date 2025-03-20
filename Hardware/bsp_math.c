@@ -1,23 +1,26 @@
 #include "stm32f10x.h"                  // Device header
-#include "math.h"
+//#include "math.h"
 #include "bsp_key.h"
-#include "OLED.h"
+#include "bsp_OLED.h"
 #include "bsp_math.h"
+#include <string.h>
+#include "Cal_algorithm.h"
+#include "Cal_stack.h"
+extern int flag;
+extern char arr[100];
 /*按键布局*/
-char Keyboard[16]={
-	'1','2','3','*',
-	'4','5','6','-',
-	'7','8','9','+',
-	'=','0','.','/'
-};
+
+
+static Stack _NumInput;//定义为静态变量，防止每次定义的时候都初始化
+
 //栈的初始化
-void Stack_Init(Stack *s)
+static void Stack_Init(Stack *s)
 { 
 	s->Top=-1;
 }
 
 //判断栈是否已满
-int Full(Stack *s)
+static int Full(Stack *s)
 {
 	if(s->Top==Max-1)
 	{
@@ -27,7 +30,7 @@ int Full(Stack *s)
 }
 
 //入栈
-void Stack_push(Stack *s, char Value)
+static void Stack_push(Stack *s, char Value)
 {
     if (Full(s))
     {
@@ -37,8 +40,17 @@ void Stack_push(Stack *s, char Value)
     s->data[s->Top + 1] = '\0'; // 添加字符串结束符
 }
 
+//出栈（退位功能）
+static void Stack_pop(Stack *s)
+{
+    if (!Full(s))
+    {
+        s->Top--;
+        s->data[s->Top + 1] = '\0'; // 更新字符串结束符
+    }
+}
 //计算数值函数
-long long calculate(Stack *s)
+/*long long calculate(Stack *s)
 {
 	long long result=0;
 	int nten=0;
@@ -47,36 +59,52 @@ long long calculate(Stack *s)
 	result +=s->data[i]*pow(10,nten);
 	nten++;
 	}
-
-	return result ;
-}
+	return result;
+}*/
 
 //按键输入函数
 void Input(void)
 {
-	static Stack _NumInput;//定义为静态变量，防止每次定义的时候都初始化
-	static int InitFlag = 1;
-    if (InitFlag) {
+	
+	static int _InitFlag = 1;
+    if (_InitFlag) 
+	{
         Stack_Init(&_NumInput);
-        InitFlag = 0;
+        _InitFlag = 0;
     }
 	char _Value;//要入栈的数
-	uint8_t KeyValue=KeyNumGet();
+	uint8_t KeyValue=0;
+	KeyValue=KeyNumGet();
 	if(KeyValue)
 	{
 		_Value=Keyboard[KeyValue-1];
-		if(KeyValue)
+		if(KeyValue&&!Full(&_NumInput)&&KeyValue !=17&&KeyValue!=16)
 		{
 			Stack_push(&_NumInput ,_Value);
-			OLED_ShowString(1,1,_NumInput.data,OLED_8X16);
+			
 		}
-	
+		if(KeyValue==17)
+		{
+			Stack_pop(&_NumInput);
+		}
+		if(KeyValue==16)
+		{
+			strcpy(arr, GetInput());
+			Stack_Init (&_NumInput);
+			
+			flag = 1;
+		}
 	}
-		OLED_Update();
+		OLED_ClearArea(0, 0, 128, 16);
+        OLED_ShowString(1, 1, _NumInput.data, OLED_8X16);
+        OLED_Update();
 	
 }
 
-
+char* GetInput(void)
+{
+ return _NumInput.data;
+}
 /*double input(void)
 {
 	double Number[100]={0};//存储信息的数组，最高支持一百位
