@@ -30,6 +30,8 @@ char GetTop_op(SqStack_op* S);
 double GetTop(SqStack* S);
 int DestroyStark_op(SqStack_op* S);
 int DestroyStark(SqStack* S);
+int ClearStark(SqStack* S);
+int ClearStark_op(SqStack_op* S);
 
 #endif
 

@@ -8,6 +8,9 @@
 #include "Cal_stack.h"
 char arr[100];
 int flag = 0;//±êÖ¾Î»
+SqStack_op _op;
+SqStack _Value;
+SqStack *Value=&_Value;
 int main (void)
 {
 	
@@ -26,8 +29,7 @@ int main (void)
 		
 		OLED_Update();
 		}
-		SqStack_op _op;
-		SqStack _Value;
+		
 		InitStack_op(&_op);
 		InitStack(&_Value);
 		

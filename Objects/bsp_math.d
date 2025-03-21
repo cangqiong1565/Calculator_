@@ -38,3 +38,4 @@
 .\objects\bsp_math.o: E:\Keil5\ARM\ARMCC\Bin\..\include\ctype.h
 .\objects\bsp_math.o: Hardware\Cal_stack.h
 .\objects\bsp_math.o: E:\Keil5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\bsp_math.o: E:\Keil5\ARM\ARMCC\Bin\..\include\math.h

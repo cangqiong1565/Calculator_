@@ -84,7 +84,7 @@ double GetTop(SqStack* S)
 	return ret;
 }
 
-//栈的销毁
+//栈的清空
 int DestroyStark(SqStack* S)
 {
 	if (S->base)
@@ -104,5 +104,17 @@ int DestroyStark_op(SqStack_op* S)
 		S->stacksize = 0;
 		S->base_op = S->top_op = NULL;
 	}
+	return 1;
+}
+
+int ClearStark(SqStack* S)
+{
+	if (S->base) S->top = S->base;
+	return 1;
+}
+
+int ClearStark_op(SqStack_op* S)
+{
+	if (S->base_op) S->top_op = S->base_op;
 	return 1;
 }

@@ -9,8 +9,8 @@
 extern int flag;
 extern char arr[100];
 /*按键布局*/
-
-
+extern SqStack_op _op;
+extern SqStack *Value;
 static Stack _NumInput;//定义为静态变量，防止每次定义的时候都初始化
 
 //栈的初始化
@@ -78,7 +78,7 @@ void Input(void)
 	if(KeyValue)
 	{
 		_Value=Keyboard[KeyValue-1];
-		if(KeyValue&&!Full(&_NumInput)&&KeyValue !=17&&KeyValue!=16)
+		if(KeyValue&&!Full(&_NumInput)&&KeyValue !=17&&KeyValue!=16&&KeyValue!=21)
 		{
 			Stack_push(&_NumInput ,_Value);
 			
@@ -94,6 +94,14 @@ void Input(void)
 			
 			flag = 1;
 		}
+		if (KeyValue == 21) // 归零键
+        {
+            Stack_Init(&_NumInput); // 清空数字输入栈
+            ClearStark_op(&_op);
+			ClearStark(Value);
+            flag = 0; // 清空标志位
+			OLED_Clear();
+        }
 	}
 		OLED_ClearArea(0, 0, 128, 16);
         OLED_ShowString(1, 1, _NumInput.data, OLED_8X16);
@@ -105,36 +113,7 @@ char* GetInput(void)
 {
  return _NumInput.data;
 }
-/*double input(void)
-{
-	double Number[100]={0};//存储信息的数组，最高支持一百位
-	uint8_t number;//按键对应的数字
-	int index=0;
-	double result=0;
-	
- 	if(KeyNumGet())
-	{
-		number=Keynum[KeyNumGet()-1];
-		
-		for(int i=index;i!=0;i--)
-		{
-		Number[i]=Number[i-1];
-		}
-		
-		Number[0]=number;
-		index++;
-		
-	}
-	
-	for(int i=0;i<=index;i++)
-	{
-	result+=Number[i]*pow(10,i);
-	}
-	
-	OLED_Clear ();
-	OLED_ShowNum(1,1,result,index,OLED_8X16);
-	OLED_Update();
-}*/
+
 
 
 
